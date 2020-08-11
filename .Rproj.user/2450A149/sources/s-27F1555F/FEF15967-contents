@@ -1,0 +1,2 @@
+x <- as.phylo.treeshape(x = raldous(tip.number = 3)[[1]])
+x$edge.length

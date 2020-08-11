@@ -1,0 +1,1 @@
+handle.Tree <- as.phylo.treeshape(x = rpda(tip.number = 3))

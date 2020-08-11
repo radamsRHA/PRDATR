@@ -1,0 +1,14 @@
+Package: PRDATR
+Title: Computing probabilistic distances between phylogenetic models of continuous trait evolution
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Rich",
+           family = "Adams",
+           role = c("aut", "cre"),
+           email = "adamsr@fau.edu",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: PRDATR includes a suite of function for computing distances between phylogenetic models. 
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0

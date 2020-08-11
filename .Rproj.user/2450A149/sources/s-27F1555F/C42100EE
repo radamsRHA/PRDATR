@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1591814344643.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C42100EE",
+    "lastKnownWriteTime" : 1591814530,
+    "last_content_update" : 1591814530828,
+    "path" : "~/Copy/_Software/PRDATR/R/Function_ComputePairwiseDistances_SimulateTips_PDA.R",
+    "project_path" : "R/Function_ComputePairwiseDistances_SimulateTips_PDA.R",
+    "properties" : {
+        "cursorPosition" : "44,0",
+        "scrollLine" : "29"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

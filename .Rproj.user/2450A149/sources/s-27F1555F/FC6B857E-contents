@@ -1,0 +1,25 @@
+################
+# Load depends #
+################
+#library("devtools")
+#library(roxygen2)
+
+###################
+# Set working dir #
+###################
+setwd("~/Copy/_Software/")
+setwd("./PRDATR/")
+document()
+setwd("~/Copy/_Software/")
+install("PRDATR")
+
+################################
+# Simulate datasets with n = 3 #
+################################
+vector.Theta <- c(1, 1)
+names(vector.Theta) <- c("Sig2", "alpha")
+list.RESULTS_n3_b1_a1 <- Function_ComputePairwiseDistances_SimulateTips_BaisedModel(numeric.NumberReps = 10,
+                                                                                    numeric.n = 3, 
+                                                                                    numeric.bias = 0.5,
+                                                                                    string.Model = "OU",
+                                                                                    vector.Theta = vector.Theta)$vector.PairwiseDistances_H
