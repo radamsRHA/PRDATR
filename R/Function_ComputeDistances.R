@@ -3,6 +3,7 @@
 #' This function returns a vector containing the Hellinger and KL distances between two tree models
 #' @param list.Model_01 List containing the following (1) handle.Phylogeny, (2) string.Model = "BM", "OU", "EB", "lambda", "kappa", "delta", (3) vector.Z = vector of mean (ancestral) state values, and (4) vector.Model_01_Theta = vector containing relevant parameters for the models
 #' @param list.Model_02 List containing the following (1) handle.Phylogeny, (2) string.Model = "BM", "OU", "EB", "lambda", "kappa", "delta", (3) vector.Z = vector of mean (ancestral) state values, and (4) vector.Model_01_Theta = vector containing relevant parameters for the models
+#' @param boo.SortNames Boolean (TRUE or FALSE; default = FALSE). Will order the VCV for the second model based on the rownames and colnames of the VCV generated for the first model. Try this option if using different trees for the two models
 #' @keywords probabilistic phylogenetic distances, model distance, brownian motion, continuous trait evolution
 #' @return vector.Distances Vector containing the distances computed between the two focal tree models\cr
 #' @export
@@ -46,7 +47,7 @@
 #############################
 # Function_ComputeDistances #
 #############################
-Function_ComputeDistances <- function(list.Model_01, list.Model_02){
+Function_ComputeDistances <- function(list.Model_01, list.Model_02, boo.SortNames = T){
 
   ##################
   # Build Model 01 #
@@ -135,6 +136,14 @@ Function_ComputeDistances <- function(list.Model_01, list.Model_02){
     handle.Model_02_ReScaled <- handle.Model_02_ReScaled(delta = vector.Model_02_Theta["delta"], sigsq = numeric.Model_02_Sig2)
     matrix.Model_02_VarCovar <- vcv(phy = handle.Model_02_ReScaled)
   }
+  
+    #################################  
+  # Sort matrices by the firs one #
+  #################################
+  if (boo.SortNames == TRUE){
+    matrix.Model_02_VarCovar <- matrix.Model_02_VarCovar[rownames(matrix.Model_01_VarCovar), colnames(matrix.Model_01_VarCovar)]
+   }
+
 
   #################################
   # Compute Hellinger coefficient #
