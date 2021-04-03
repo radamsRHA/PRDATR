@@ -163,7 +163,7 @@ Function_ComputeHellingerDistances <- function(list.Model_01, list.Model_02, boo
   #################################  
   # Sort matrices by the firs one #
   #################################
-  if (boo.SortNames = TRUE){
+  if (boo.SortNames == TRUE){
     matrix.Model_02_VarCovar <- matrix.Model_02_VarCovar[rownames(matrix.Model_01_VarCovar), colnames(matrix.Model_01_VarCovar)]
    }
 
