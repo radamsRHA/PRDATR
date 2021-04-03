@@ -47,7 +47,7 @@
 ######################################
 # Function_ComputeHellingerDistances #
 ######################################
-Function_ComputeHellingerDistances <- function(list.Model_01, list.Model_02, boo.SortNames = NA){
+Function_ComputeHellingerDistances <- function(list.Model_01, list.Model_02, boo.SortNames = TRUE){
 
   ##################
   # Build Model 01 #
