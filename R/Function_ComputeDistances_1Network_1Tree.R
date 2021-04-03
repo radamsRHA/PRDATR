@@ -3,6 +3,7 @@
 #' This function returns a vector containing the Hellinger and KL distances between two tree models
 #' @param list.Model_01_Network List containing the following (1) handle.Phylogeny, (2) string.Model = "BM", "OU", "EB", "lambda", "kappa", "delta", (3) vector.Z = vector of mean (ancestral) state values, and (4) vector.Model_01_Theta = vector containing relevant parameters for the models
 #' @param list.Model_02_Tree List containing the following (1) handle.Phylogeny, (2) string.Model = "BM", "OU", "EB", "lambda", "kappa", "delta", (3) vector.Z = vector of mean (ancestral) state values, and (4) vector.Model_01_Theta = vector containing relevant parameters for the models
+#' @param boo.SortNames Boolean (TRUE or FALSE; default = FALSE). Will order the VCV for the second model based on the rownames and colnames of the VCV generated for the first model. Try this option if using different trees for the two models
 #' @keywords probabilistic phylogenetic distances, model distance, brownian motion, continuous trait evolution
 #' @return vector.Distances Vector containing the distances computed between the two focal tree models\cr
 #' @export
@@ -51,7 +52,7 @@
 #############################################
 # Function_ComputeDistances_1Network_1Tree #
 #############################################
-Function_ComputeDistances_1Network_1Tree <- function(list.Model_01_Network, list.Model_02_Tree){
+Function_ComputeDistances_1Network_1Tree <- function(list.Model_01_Network, list.Model_02_Tree, boo.SortNames = T){
 
 
   ##################
@@ -77,6 +78,13 @@ Function_ComputeDistances_1Network_1Tree <- function(list.Model_01_Network, list
   handle.Model_02_Tree_ReScaled <- rescale(x = handle.Model_02_Tree, model = "BM")
   handle.Model_02_Tree_ReScaled <- handle.Model_02_Tree_ReScaled(sigsq = numeric.Model_02_Sig2)
   matrix.Model_02_Tree_VarCovar <- vcv(phy = handle.Model_02_Tree_ReScaled)
+  
+  #################################  
+  # Sort matrices by the firs one #
+  #################################
+  if (boo.SortNames == TRUE){
+    matrix.Model_02_Tree_VarCovar <- matrix.Model_02_Tree_VarCovar[rownames(matrix.VFV_Model_01_Network), colnames(matrix.VFV_Model_01_Network)]
+   }
 
   ##############################
   # Compute Hellinger distance #
